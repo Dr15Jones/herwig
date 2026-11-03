@@ -257,7 +257,7 @@ bool MadGraphAmplitude::initializeExternal() {
   params<<"\n$MTA$ "    <<std::setiosflags(ios::scientific)   << getParticleData(ParticleID::tauplus)->hardProcessMass() /GeV <<flush;
 
   
-  string cmd = "python " + bindir_ + "/mg2herwig ";
+  string cmd = "python3 " + bindir_ + "/mg2herwig ";
   cmd +=" --buildpath "+mgProcLibPath();
   cmd += !theProcessPath.empty() ? " --absolute-links" : "";
   cmd +=" --model "+theMGmodel;
@@ -299,7 +299,7 @@ bool MadGraphAmplitude::initializeExternal() {
   std::system(cmd.c_str());
   
   
-  cmd = "python " + bindir_ + "/mg2herwig ";
+  cmd = "python3 " + bindir_ + "/mg2herwig ";
   cmd +=" --buildpath "+mgProcLibPath();
   cmd +=" --model "+theMGmodel;
   cmd +=" --runpath "+factory()->runStorage()+"/MadGraphAmplitudes ";
